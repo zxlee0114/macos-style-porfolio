@@ -35,6 +35,13 @@ const navIcons = [
   },
 ];
 
+type DockApp = {
+  id: string;
+  name: string;
+  icon: string;
+  canOpen: boolean;
+};
+
 const dockApps = [
   {
     id: "finder",
@@ -72,7 +79,7 @@ const dockApps = [
     icon: "trash.png",
     canOpen: false,
   },
-];
+] satisfies readonly DockApp[];
 
 const blogPosts = [
   {
@@ -203,6 +210,8 @@ const gallery = [
     img: "/images/gal4.png",
   },
 ];
+
+export type { DockApp };
 
 export {
   navLinks,
