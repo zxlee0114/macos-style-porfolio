@@ -1,3 +1,5 @@
+import type { DockApp } from "./types";
+
 const navLinks = [
   {
     id: 1,
@@ -34,13 +36,6 @@ const navIcons = [
     img: "/icons/mode.svg",
   },
 ];
-
-type DockApp = {
-  id: string;
-  name: string;
-  icon: string;
-  canOpen: boolean;
-};
 
 const dockApps = [
   {
@@ -210,8 +205,6 @@ const gallery = [
     img: "/images/gal4.png",
   },
 ];
-
-export type { DockApp };
 
 export {
   navLinks,
@@ -506,6 +499,7 @@ const WINDOW_CONFIG = {
   contact: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
   resume: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
   safari: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
+  trash: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
   photos: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
   terminal: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
   txtfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
