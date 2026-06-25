@@ -1,11 +1,15 @@
 import { useRef } from "react";
 import { Tooltip } from "react-tooltip";
-import { dockApps, type DockApp } from "#constants";
+import { dockApps } from "#constants";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { useWindowActions, useWindows } from "#store/window";
+import type { DockApp } from "#constants/types";
 
 const Dock = () => {
   const dockRef = useRef<HTMLDivElement>(null);
+  const windows = useWindows();
+  const { closeWindow, openWindow } = useWindowActions();
 
   useGSAP(() => {
     const dock = dockRef.current;
@@ -64,8 +68,21 @@ const Dock = () => {
   });
 
   const toggleApp = ({ id, canOpen }: Pick<DockApp, "id" | "canOpen">) => {
-    // TODO 開啟視窗邏輯
+    if (!canOpen) return;
+
+    const targetWindow = windows[id];
+    if (!targetWindow) {
+      console.error(`Window with id ${id} does not exist`);
+      return;
+    }
+
+    if (targetWindow.isOpen) {
+      closeWindow(id);
+    } else {
+      openWindow(id);
+    }
   };
+
   return (
     <section id="dock">
       <div ref={dockRef} className="dock-container">
