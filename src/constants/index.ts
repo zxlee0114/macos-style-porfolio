@@ -1,4 +1,4 @@
-import type { DockApp, NavLink } from "./types";
+import type { DockApp, Location, NavLink } from "./types";
 
 const navLinks = [
   {
@@ -383,7 +383,7 @@ const WORK_LOCATION = {
       ],
     },
   ],
-};
+} satisfies Location;
 
 const ABOUT_LOCATION = {
   id: 2,
@@ -436,7 +436,7 @@ const ABOUT_LOCATION = {
       ],
     },
   ],
-};
+} satisfies Location;
 
 const RESUME_LOCATION = {
   id: 3,
@@ -455,7 +455,7 @@ const RESUME_LOCATION = {
       // href: "/your/resume/path.pdf",
     },
   ],
-};
+} satisfies Location;
 
 const TRASH_LOCATION = {
   id: 4,
@@ -483,7 +483,7 @@ const TRASH_LOCATION = {
       imageUrl: "/images/trash-2.png",
     },
   ],
-};
+} satisfies Location;
 
 export const locations = {
   work: WORK_LOCATION,
