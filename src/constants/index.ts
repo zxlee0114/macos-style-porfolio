@@ -1,4 +1,4 @@
-import type { DockApp } from "./types";
+import type { DockApp, NavLink } from "./types";
 
 const navLinks = [
   {
@@ -16,7 +16,7 @@ const navLinks = [
     name: "Resume",
     type: "resume",
   },
-];
+] satisfies NavLink[];
 
 const navIcons = [
   {
