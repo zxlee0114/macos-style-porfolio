@@ -35,8 +35,7 @@ export type WindowKey = keyof typeof WINDOW_CONFIG;
 
 export type WindowConfig = Record<WindowKey, WindowState>;
 
-// ? 重新整理 DockApp 的 id 型別（與 WindowKey 匹配）
-
+// DockApp
 type DockAppId = Extract<
   WindowKey,
   "finder" | "safari" | "photos" | "contact" | "terminal" | "trash"
@@ -47,4 +46,14 @@ export type DockApp = {
   name: string;
   icon: string;
   canOpen: boolean;
+};
+
+// NavLink
+
+type NavLinkType = Extract<WindowKey, "finder" | "contact" | "resume">;
+
+export type NavLink = {
+  id: number;
+  name: string;
+  type: NavLinkType;
 };
